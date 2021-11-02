@@ -13,12 +13,12 @@ You will still need a method to upload the sav file to a real cartridge or to lo
 # How to use
 You will need to be able to run python code on your pc. 
 Simply download the .zip from the distributions page, 
-open a cmd window and provide the path to the the .sav file you would like to edit (make backups first!)
+open a cmd window and provide the path to the the .sav file you would like to edit. (make backups first!)
 Once the sav file has been "randomized" you will need to load in the sav file onto your cart or emulator, and have fun!
 
 # Important Disclaimer:
 This is entirly a proof of concept, the game should be playable, however as of now, the only functionalty is randomizing grass/water encounters, and randomizing trainer battles.
-Fishing pokemon, Starter Pokemon, In game trades, gift pokemon ect. are still as in vanilla.
+Fishing pokemon, starter pokemon, in game trades, gift pokemon ect. are still as in vanilla.
 The goal of this project was simply to see what is possible, not to make a fully fleshed out randomizer.  
 That isn't to say that adding such featurs are *impossible*, actually i'd suspect it would be possible to add most, if not all, of those features into the remaing free space in the save file. 
 If there is any interest in seeing that through, I'd be glad to continue working on this project, as for now I plan on taking a break from this project.
@@ -39,7 +39,7 @@ Link to the YouTube video:
 https://youtu.be/i2x3pIvVnP4
 
 Although I didn't end up using the same code, the original idea came from a video made by Evie (ChickasaurusGL) 🌺 in 2018,
-Where she shows a simplifyed version of this project, that works by continually loading data from the RNG into wild encounter slots.
+where she shows a simplifyed version of this project, that works by continually loading data from the RNG into wild encounter slots.
 Link to the YouTube video:
 https://youtu.be/RDq6DvWPx5M
 
