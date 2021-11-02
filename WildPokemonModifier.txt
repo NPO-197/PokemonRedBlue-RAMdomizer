@@ -1,0 +1,49 @@
+
+LoadWildData:
+	ld hl, WildDataPointers
+	ld a, [wCurMap]
+
+	; @get wild data for current map@
+	ld c, a
+	ld b, 0
+	add hl, bc
+	add hl, bc
+
+  ; @Load wild pokemon bank $03@
+  ld a,($ff00+hLoadedROMBank)
+  push af
+  ld a,$03
+  ld ($ff00+hLoadedROMBank),a
+  ld ($2000),a
+
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a       ; @hl now points to wild data for current map@
+
+  pop af
+  ld ($ff00+hLoadedROMBank),a
+  ld ($2000),a
+  ld bc,$69d3 ;@$BAB0-$NoMons@
+  add hl, bc
+
+  ld a, [hli]
+	ld [wGrassRate], a
+	and a
+	jr z, $0f ; @if no grass data, skip to surfing data@
+	push hl
+	ld de, wGrassMons ; @otherwise, load grass data@
+	ld bc, $14
+	call CopyData
+	pop hl
+	ld bc, $14
+	add hl, bc
+NoGrassData:
+	ld a, [hli]
+	ld [wWaterRate], a
+	and a
+	ret z
+	ld de, wWaterMons  ;@ otherwise, load surfing data@
+	ld bc, $14
+	jp CopyData
+
+

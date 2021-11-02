@@ -1,0 +1,94 @@
+
+wPatchHram:
+ld hl,hDMARoutine
+ld bc,wPatchCurrentRoomScript
+ld a,$18
+ldi (hl),a ;@jr 78 (to FFFA)@
+ld (hl),$78
+ld hl,$FFFA
+ld (hl),$CD ;@Call wPatchCurrentRoomScript@
+inc hl
+ld (hl),c
+inc hl
+ld (hl),b
+inc hl
+ldi (hl),a ;@jr 83 (to FF82)@
+ld (hl),$83
+wReturnFromRoomSpecificScript:
+ld hl,wTempMapScriptPtr
+ldi a,(hl)
+ld h,(hl)
+ld l,a
+wJmpHL:
+jp hl
+wNewRoomFlag:
+wTempMapScriptPtr:;7A
+wTempMapScriptPtrHi:;00
+wPatchCurrentRoomScript:
+ld hl,wMapScriptPtr+$0001
+ld de,wTempMapScriptPtrHi
+ld bc,wPatchHram
+ldd a,(hl)
+cp a,b
+jr z,wAlreadyPatchedScript
+ld (de),a
+dec de
+ld a,(hl)
+ld (de),a
+dec de
+xor a
+ld (de),a
+wAlreadyPatchedScript:
+ld (hl),c
+inc hl
+ld (hl),b
+;@ Check if a new room has been loaded@
+ld a,(wNewRoomFlag)
+or a
+jr z,wUpdateTable
+;@ Check if Opponnet Trainer Data has been loaded@
+ld a,(wEnemyPartyCount)
+cp $0a
+jr nz,wTrainerUpdate
+
+wReturnToHram:
+ld a,$C3
+ret
+
+wWaitFrame:
+
+wTrainerUpdate:
+ld hl,wWaitFrame
+ld a,(hl) ;@wWaitFrame is 0 by default@
+cp a, $0a
+jr z, wLoadTrainerFromSram ; @If wWaitFrame == $0a we now need to Load the trainer@
+jr nc, wReturnToHram ;@If wWaitFrame > $0a we already Loaded the trainer@
+inc a   ; @If wWaitFrame < $0a we need to wait a a few frames before loading in the trainer@
+ld (hl),a
+jr wReturnToHram
+
+wLoadTrainerFromSram:
+inc a
+ld (hl),a ; @Update wWaitFrame to be >$0a so we only Load the trainer data once@
+ld hl,$A000
+ld b,$01
+jr wLoadExtraCodeFromSram
+
+wUpdateTable:
+ld (wWaitFrame),a
+inc a
+ld (wNewRoomFlag),a
+ld a,$0a
+ld (wEnemyPartyCount),a ; @Reset wEnemyParyCount to 10, so we can detect when it gets over written@
+ld hl,$BA60
+ld b,$02
+
+wLoadExtraCodeFromSram:
+ld a,$0A
+ld ($0001),a
+ld a,b
+ld ($4001),a
+call wJmpHL
+ld h,$00
+ld (hl),h
+jr wReturnToHram
