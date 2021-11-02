@@ -30,7 +30,31 @@ That's a great question, thank you for asking that... :)
 Simply put this RAMdomizer makes use of an ACE (Arbatrary Code Execution) exploit in pokemon red / blue to run custom code stored in RAM once every frame, 
 the custom script detects if wild pokemon data or enemy trainer data gets loaded into work ram, 
 and then overwrites the vanilla data with randomized data stored in the sav file, before any battle starts.
-I will be sure to add a more detailed explination / links to relavent videos in the next few days... (11/1/21) 
+
+In this repo there are some txt files that go over the custom asm code that is inserted into the .sav file.
+
+# Relavent Links:
+
+This project was originaly based on some python code, and uses a modifyed bootstrap method, made by MrCheeze in 2017.
+MrCheeze made a "Virus" for pokemon red/blue that adds a feature to hide mew under the truck by the SS Ann.
+Link to the YouTube video:
+https://youtu.be/i2x3pIvVnP4
+
+Although I didn't end up using the same code, the original idea came from a video made by Evie (ChickasaurusGL) 🌺 in 2018,
+Where she shows a simplifyed version of this project, that works by continually loading data from the RNG into wild encounter slots.
+Link to the YouTube video:
+https://youtu.be/RDq6DvWPx5M
+
+
+
+
+
+
+
+
+
+
+
 
 
 
