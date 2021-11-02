@@ -34,13 +34,13 @@ In this repo there are some txt files that go over the custom asm code that is i
 # Relavent Links:
 
 This project was originaly based on some python code, and uses a modifyed bootstrap method, made by MrCheeze in 2017.
-MrCheeze made a "Virus" for pokemon red/blue that adds a feature to hide mew under the truck by the SS Ann.
-Link to the YouTube video: 
+MrCheeze made a "Virus" for pokemon red/blue that adds a feature to hide mew under the truck by the SS Ann.  
+Link to the YouTube video:   
 https://youtu.be/i2x3pIvVnP4
 
 Although I didn't end up using the same code, the original idea came from a video made by Evie (ChickasaurusGL) 🌺 in 2018,
-where she shows a simplifyed version of this project, that works by continually loading data from the RNG into wild encounter slots.
-Link to the YouTube video:
+where she shows a simplifyed version of this project, that works by continually loading data from the RNG into wild encounter slots.  
+Link to the YouTube video:  
 https://youtu.be/RDq6DvWPx5M
 
 # How to reach me:
