@@ -38,7 +38,7 @@ MrCheeze made a "Virus" for pokemon red/blue that adds a feature to hide mew und
 Link to the YouTube video:   
 https://youtu.be/i2x3pIvVnP4
 
-Although I didn't end up using the same code, the original idea came from a video made by Evie (ChickasaurusGL) 🌺 in 2018,
+The original idea for this project came from a video made by Evie (ChickasaurusGL) 🌺 in 2018,  
 where she shows a simplifyed version of this project, that works by continually loading data from the RNG into wild encounter slots.  
 Link to the YouTube video:  
 https://youtu.be/RDq6DvWPx5M
